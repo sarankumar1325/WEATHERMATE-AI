@@ -1,0 +1,172 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Custom styles */
+@layer base {
+  :root {
+    --font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+      Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --toast-bg: #ffffff;
+    --toast-color: #1f2937;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --toast-bg: #1f2937;
+      --toast-color: #ffffff;
+    }
+  }
+
+  html {
+    font-family: var(--font-family);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply m-0 min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 dark:from-gray-900 dark:to-gray-800;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-[1.02] hover:shadow-xl;
+  }
+
+  .card-header {
+    @apply p-6 border-b border-gray-200 dark:border-gray-700;
+  }
+
+  .input-search {
+    @apply w-full px-6 py-4 text-lg text-gray-700 dark:text-white bg-white dark:bg-gray-800 border-2 border-transparent rounded-full shadow-lg focus:border-blue-500 dark:focus:border-blue-400 focus:outline-none transition-all duration-300 placeholder-gray-400 dark:placeholder-gray-500;
+  }
+
+  .button-primary {
+    @apply bg-blue-500 dark:bg-blue-600 text-white rounded-full hover:bg-blue-600 dark:hover:bg-blue-700 transition-colors duration-300;
+  }
+
+  .text-gradient {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-teal-400;
+  }
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse-soft {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bounce-soft {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 3s ease-in-out infinite;
+}
+
+.animate-bounce-slow {
+  animation: bounce-soft 3s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin 3s linear infinite;
+}
+
+/* Hover Effects */
+.hover-lift {
+  @apply transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg;
+}
+
+.hover-glow {
+  @apply transition-all duration-300 hover:shadow-[0_0_20px_rgba(59,130,246,0.5)];
+}
+
+.hover-scale {
+  @apply transition-transform duration-300 hover:scale-105;
+}
+
+/* Glass Effect */
+.glass {
+  @apply backdrop-blur-lg bg-white/30 dark:bg-gray-800/30;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  @apply w-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 dark:bg-gray-600 rounded-full transition-colors duration-300;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400 dark:bg-gray-500;
+}
+
+/* Map styles */
+.maplibregl-ctrl-top-right {
+  @apply mt-3 mr-3;
+}
+
+.maplibregl-ctrl-group {
+  @apply rounded-lg overflow-hidden shadow-md backdrop-blur-lg !important;
+}
+
+.maplibregl-ctrl-group button {
+  @apply w-9 h-9 transition-colors duration-300 !important;
+}
+
+/* Dark mode map controls */
+@media (prefers-color-scheme: dark) {
+  .maplibregl-ctrl-group {
+    @apply bg-gray-800/80 !important;
+  }
+
+  .maplibregl-ctrl-group button {
+    @apply bg-gray-800/80 text-white hover:bg-gray-700 !important;
+  }
+}
+
+/* Loading effects */
+.loading-shimmer {
+  @apply relative overflow-hidden before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_2s_infinite] before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent;
+}
+
+/* Parallax container */
+.parallax-container {
+  @apply relative transform-gpu;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
