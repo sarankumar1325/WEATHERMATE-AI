@@ -2,6 +2,9 @@
 
 WeatherMate is an intelligent weather agent built with the Lyzr agent framework, leveraging the power of the Gemini API and OpenWeather API. It provides personalized recommendations based on current weather conditions, helping you make informed decisions about your day.
 
+https://github.com/user-attachments/assets/9d30256f-f3aa-41cf-b34f-267738f8880d
+
+
 ## Features
 
 - **Clothing & Accessories Recommendations**: Get advice on what to wear based on temperature and feels-like conditions.
